@@ -1,4 +1,4 @@
-import {
+import { Facebook,Instagram, Linkedin,
   CheckSquare,
   Hotel,
   Gavel,
@@ -256,6 +256,42 @@ const App = () => {
             <img src={sarojLogo} alt="Saroj University Logo" className="h-12" />
           </div>
 
+          {/* Social media icons */}
+        <div className="hidden md:flex items-center space-x-4 mr-3">
+        <a
+          href="https://www.facebook.com/siulucknow"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-500"
+        >
+          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+            <Facebook className="w-4 h-4 text-gray-600" />
+          </div>
+        </a>
+        <a
+          href="https://www.instagram.com/siulucknow/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-500"
+        >
+          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+            <Instagram className="w-4 h-4 text-gray-600" />
+          </div>
+        </a>
+
+         <a
+          href="https://www.linkedin.com/company/siulucknow/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-500"
+        >
+          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+            <Linkedin className="w-4 h-4 text-gray-600" />
+          </div>
+        </a>
+      </div>
+
+
           {/* Contact Info */}
           <div className="hidden md:flex items-center space-x-6 ml-auto">
             <a
@@ -272,6 +308,10 @@ const App = () => {
               <Mail className="w-5 h-5 mr-2" />
               <span>info@sarojuniversity.edu.in</span>
             </a>
+
+             {/*  Apply now button  */}
+      <a href="https://siu.in8.nopaperforms.com/" target="_blank" className="hidden md:block px-13 p-2 text-sm rounded-lg border-2 border-blue-500 m-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white whitespace-nowrap">Apply Now</a>
+
           </div>
         </div>
       </header>
@@ -329,7 +369,7 @@ const App = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center text-green-300">
+                  <div className="flex items-center text-white" >
                     <Check className="w-5 h-5 mr-2" />
                     <span>UGC Recognized</span>
                   </div>
@@ -491,10 +531,10 @@ const App = () => {
             <p className="text-lg text-gray-600 mb-6">
               Have questions about the application process?
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full shadow-md transition-all flex items-center mx-auto">
+            <a className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full shadow-md transition-all flex items-center mx-auto w-fit" href="tel:+919513731275">
               <Phone className="w-5 h-5 mr-2" />
               Contact Admissions
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>

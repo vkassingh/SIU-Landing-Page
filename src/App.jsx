@@ -276,7 +276,7 @@ const App = () => {
         </div>
       </header>
 
-      {/* Hero Section - Image and text */}
+      
       {/* Hero Section - Image and text with form */}
       <section className="relative w-full py-16 min-h-[600px] flex items-center">
         {/* Background Image with Overlay */}
@@ -293,7 +293,7 @@ const App = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left Side - Text Content */}
-            <div className="lg:w-1/2 text-white">
+            <div className="lg:w-1/2 text-white pr-6">
               <motion.div
                 variants={dropIn}
                 initial="hidden"
@@ -335,7 +335,7 @@ const App = () => {
                   </div>
                   <div className="flex items-center text-green-300">
                     <Check className="w-5 h-5 mr-2" />
-                    <span>NAAC Accredited</span>
+                    <span>AICTE Approved</span>
                   </div>
                   <div className="flex items-center text-green-300">
                     <Check className="w-5 h-5 mr-2" />
@@ -351,7 +351,7 @@ const App = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="lg:w-2/4 bg-sky-400/60 py-2 rounded-xl shadow-sm opacity-50 border "
+              className="lg:w-1/3 bg-sky-400/60 py-2 rounded-xl shadow-sm opacity-50 border ml-10"
             >
               <h3 className="text-2xl my-4 font-bold text-center text-white ">
                 Admission Inquiry Form

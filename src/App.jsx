@@ -309,9 +309,7 @@ const App = () => {
               <span>info@sarojuniversity.edu.in</span>
             </a>
 
-             {/*  Apply now button  */}
-      <a href="https://siu.in8.nopaperforms.com/" target="_blank" className="hidden md:block px-13 p-2 text-sm rounded-lg border-2 border-blue-500 m-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white whitespace-nowrap">Apply Now</a>
-
+      
           </div>
         </div>
       </header>

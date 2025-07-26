@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import sarojLogo from "./assets/sarojLogo.png";
 import { FileText, Upload, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import HeroSection from "./components/HeroSection";
 
 // Animation variants for RESEARCH SECTION starts
 const container = {
@@ -149,102 +150,14 @@ const StarParticle = () => {
 };
 
 const App = () => {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [widgetLoaded, setWidgetLoaded] = useState(false);
-
-  useEffect(() => {
-    const loadScript = () => {
-      if (
-        document.querySelector(
-          'script[src="https://widgets.in8.nopaperforms.com/emwgts.js"]'
-        )
-      ) {
-        setScriptLoaded(true);
-        return;
-      }
-
-      const s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://widgets.in8.nopaperforms.com/emwgts.js";
-
-      s.onload = () => {
-        setScriptLoaded(true);
-        setTimeout(() => {
-          const widgetElement = document.querySelector(".npf_wgts");
-          if (widgetElement && widgetElement.innerHTML.trim()) {
-            setWidgetLoaded(true);
-          }
-        }, 1000);
-      };
-
-      s.onerror = () => console.error("Failed to load NoPaperForms script");
-      document.body.appendChild(s);
-    };
-
-    loadScript();
-  }, []);
-
+  
   //APPLY SECTION state for start particles
   const [particles, setParticles] = useState([]);
   useEffect(() => {
     setParticles(Array.from({ length: 80 }, (_, i) => i));
   }, []);
 
-  // Animation variants for the looping words
-  const wordVariants = {
-    enter: {
-      opacity: 0,
-      y: 20,
-    },
-    center: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: {
-        duration: 0.5,
-        ease: "easeIn",
-      },
-    },
-  };
-
-  //drop in effect for hero section text
-  const dropIn = {
-    hidden: {
-      y: -100,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 8.8,
-        type: "spring",
-        damping: 15,
-        stiffness: 100,
-      },
-    },
-  };
-
-  const words = ["Educate...", "Empower...", "Excel..."];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    // Set up a timer to cycle through the words every 3 seconds
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2300); // 3 seconds delay
-
-    // Clear the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  
 
   return (
     <div className="font-sans text-gray-800">
@@ -315,96 +228,7 @@ const App = () => {
       </header>
 
       
-      {/* Hero Section - Image and text with form */}
-      <section className="relative w-full py-16 min-h-[600px] flex items-center">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
-            alt="University Campus"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
-        </div>
-
-        {/* Content Container */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Left Side - Text Content */}
-            <div className="lg:w-1/2 text-white pr-6">
-              <motion.div
-                variants={dropIn}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: 0.5, ...dropIn.visible.transition }}
-                className="space-y-6"
-              >
-                <h1 className="text-4xl md:text-5xl font-extrabold">
-                  SAROJ INTERNATIONAL UNIVERSITY
-                </h1>
-
-                <h2 className="text-2xl md:text-3xl font-medium text-blue-200">
-                  India's Gateway to Next-Gen Education
-                </h2>
-
-                {/* Looping words */}
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={currentWordIndex}
-                    variants={wordVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className="text-xl md:text-2xl font-semibold text-yellow-300"
-                  >
-                    {words[currentWordIndex]}
-                  </motion.p>
-                </AnimatePresence>
-
-                <p className="text-lg text-blue-100">
-                  Offering world-class education with state-of-the-art
-                  facilities and industry-aligned programs.
-                </p>
-
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center text-green-300" >
-                    <Check className="w-5 h-5 mr-2" />
-                    <span>UGC Recognized</span>
-                  </div>
-                  <div className="flex items-center text-green-300">
-                    <Check className="w-5 h-5 mr-2" />
-                    <span>AICTE Approved</span>
-                  </div>
-                  <div className="flex items-center text-green-300">
-                    <Check className="w-5 h-5 mr-2" />
-                    <span>Industry Partnerships</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right Side - Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="lg:w-1/3 bg-sky-400/60 py-2 rounded-xl shadow-sm opacity-50 border ml-10"
-            >
-              <h3 className="text-2xl my-4 font-bold text-center text-white ">
-                Admission Inquiry Form
-              </h3>
-
-              <div
-                className="npf_wgts"
-                data-height="500"
-                data-width="80%"
-                data-w="c4686ca3db50effadb9f24fc7ca22401"
-              ></div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+       <HeroSection/>
 
       {/* Application Section */}
       <section className="py-16 bg-gradient-to-b from-blue-50 to-white">

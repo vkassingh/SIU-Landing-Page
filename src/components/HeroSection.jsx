@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import { motion, AnimatePresence } from "framer-motion";
+import { Check } from "lucide-react";
+import { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 // Animation variants
 const dropIn = {
@@ -14,7 +14,7 @@ const dropIn = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      type: 'spring',
+      type: "spring",
       damping: 25,
       stiffness: 500,
     },
@@ -37,13 +37,18 @@ const wordVariants = {
 };
 
 const HeroSection = () => {
-  const words = ['Innovative Learning', 'Industry Exposure', 'Global Opportunities', 'Research Excellence'];
+  const words = [
+    "Innovative Learning",
+    "Industry Exposure",
+    "Global Opportunities",
+    "Research Excellence",
+  ];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    institute: '',
-    course: ''
+    name: "",
+    mobile: "",
+    institute: "",
+    course: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -56,9 +61,9 @@ const HeroSection = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -70,27 +75,27 @@ const HeroSection = () => {
       // Using FormSubmit to handle the form submission
       const form = e.target;
       const response = await fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: new FormData(form),
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: "application/json",
+        },
       });
 
       if (response.ok) {
-        toast.success('Form submitted successfully!');
+        toast.success("Form submitted successfully!");
         // Reset form after successful submission
         setFormData({
-          name: '',
-          mobile: '',
-          institute: '',
-          course: ''
+          name: "",
+          mobile: "",
+          institute: "",
+          course: "",
         });
       } else {
-        throw new Error('Form submission failed');
+        throw new Error("Form submission failed");
       }
     } catch (error) {
-      toast.error('Failed to submit form. Please try again.');
+      toast.error("Failed to submit form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -98,22 +103,22 @@ const HeroSection = () => {
 
   return (
     <>
-      <Toaster 
+      <Toaster
         position="top-center"
         toastOptions={{
           style: {
-            background: '#4BB543',
-            color: '#fff',
+            background: "#4BB543",
+            color: "#fff",
           },
           error: {
             style: {
-              background: '#FF3333',
-              color: '#fff',
+              background: "#FF3333",
+              color: "#fff",
             },
           },
         }}
       />
-      
+
       <section className="relative w-full py-16 min-h-[600px] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
@@ -194,20 +199,27 @@ const HeroSection = () => {
                 Admission Inquiry Form
               </h3>
 
-              <form 
+              <form
                 className="space-y-4"
-                action="https://formsubmit.co/ceo@admissionx.info,chairmanseg@gmail.com" 
+                action="https://formsubmit.co/ceo@admissionx.info"
                 method="POST"
                 onSubmit={handleSubmit}
               >
                 {/* FormSubmit configuration */}
-                <input type="hidden" name="_subject" value="New Admission Inquiry" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Admission Inquiry"
+                />
                 <input type="hidden" name="_cc" value="chairmanseg@gmail.com" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_captcha" value="false" />
 
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -223,7 +235,10 @@ const HeroSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="mobile"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Mobile Number *
                   </label>
                   <input
@@ -239,7 +254,10 @@ const HeroSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="institute" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="institute"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Select Institute *
                   </label>
                   <select
@@ -250,18 +268,42 @@ const HeroSection = () => {
                     value={formData.institute}
                     onChange={handleChange}
                   >
-                    <option value="">Select Institute</option>
-                    <option value="SITM">Saroj Institute of Technology and Management, Lucknow (SITM)</option>
-                    <option value="SIMT">Saroj Institute of Management and Technology, Lucknow (SIMT)</option>
-                    <option value="SCP">Saroj College Of Pharmacy, Lucknow (SCP)</option>
-                    <option value="LIP">Lucknow Institute Of Pharmacy, Lucknow (LIP)</option>
-                    <option value="SSITM">Shivdan Singh Institute of Technology and Management, Aligarh (SSITM)</option>
-                    <option value="SCEP">Saroj College of Engineering and Pharmacy (SCEP)</option>
+                    <option value="">Select Institute *</option>
+                    <option value="Saroj Institute of Agriculture Science">
+                      Saroj Institute of Agriculture Science
+                    </option>
+                    <option value="SAROJ INSTITUTE OF ARTIFICIAL INTELLIGENCE">
+                      SAROJ INSTITUTE OF ARTIFICIAL INTELLIGENCE
+                    </option>
+                    <option value="SAROJ INSTITUTE OF MANAGEMENT AND TECHNOLOGY">
+                      SAROJ INSTITUTE OF MANAGEMENT AND TECHNOLOGY
+                    </option>
+                    <option value="SAROJ INSTITUTE OF BASIC AND HEALTH SCIENCES">
+                      SAROJ INSTITUTE OF BASIC AND HEALTH SCIENCES
+                    </option>
+                    <option value="SAROJ INSTITUTE OF HUMANITIES AND EDUCATION">
+                      SAROJ INSTITUTE OF HUMANITIES AND EDUCATION
+                    </option>
+                    <option value="SAROJ INSTITUTE OF SPORTS SCIENCE AND RESEARCH">
+                      SAROJ INSTITUTE OF SPORTS SCIENCE AND RESEARCH
+                    </option>
+                    <option value="SAROJ INSTITUTE OF ENTREPRENEURSHIP AND BUSINESS">
+                      SAROJ INSTITUTE OF ENTREPRENEURSHIP AND BUSINESS
+                    </option>
+                    <option value="SAROJ INSTITUTE OF FILM AND FASHION">
+                      SAROJ INSTITUTE OF FILM AND FASHION
+                    </option>
+                    <option value="LIP">
+                      LUCKNOW INSTITUTE OF PHARMACY
+                    </option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="course"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Course Interested In *
                   </label>
                   <select
@@ -289,7 +331,7 @@ const HeroSection = () => {
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 font-medium"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </form>
             </motion.div>

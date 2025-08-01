@@ -73,8 +73,10 @@ const HeroSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
 
     try {
+      navigate('/thank-you')
       const response = await fetch(
        import.meta.env.VITE_GOOGLE_SCRIPT_URL,
         {
@@ -92,8 +94,6 @@ const HeroSection = () => {
         }
       );
 
-     
-    
     setFormData({
       name: "",
       mobile: "",
@@ -101,7 +101,7 @@ const HeroSection = () => {
       course: "",
     });
 
-    navigate('/thank-you')
+    
   } catch (error) {
     console.error(error);
     toast.error("Error submitting form.");

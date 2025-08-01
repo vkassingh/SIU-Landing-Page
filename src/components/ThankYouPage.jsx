@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const ThankYouPage = () => {
+
+      useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'conversion',
+    });
+  }, []);
+
+
   // Animation variants for the checkmark
   const checkmarkVariants = {
     hidden: { pathLength: 0, opacity: 0 },

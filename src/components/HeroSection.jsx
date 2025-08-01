@@ -67,39 +67,39 @@ const HeroSection = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    try {
-      // Using FormSubmit to handle the form submission
-      const form = e.target;
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
-      });
+  //   try {
+  //     // Using FormSubmit to handle the form submission
+  //     const form = e.target;
+  //     const response = await fetch(form.action, {
+  //       method: "POST",
+  //       body: new FormData(form),
+  //       headers: {
+  //         Accept: "application/json",
+  //       },
+  //     });
 
-      if (response.ok) {
-        toast.success("Form submitted successfully!");
-        // Reset form after successful submission
-        setFormData({
-          name: "",
-          mobile: "",
-          institute: "",
-          course: "",
-        });
-      } else {
-        throw new Error("Form submission failed");
-      }
-    } catch (error) {
-      toast.error("Failed to submit form. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     if (response.ok) {
+  //       toast.success("Form submitted successfully!");
+  //       // Reset form after successful submission
+  //       setFormData({
+  //         name: "",
+  //         mobile: "",
+  //         institute: "",
+  //         course: "",
+  //       });
+  //     } else {
+  //       throw new Error("Form submission failed");
+  //     }
+  //   } catch (error) {
+  //     toast.error("Failed to submit form. Please try again.");
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <>
@@ -203,7 +203,6 @@ const HeroSection = () => {
                 className="space-y-4"
                 action="https://formsubmit.co/ceo@admissionx.info"
                 method="POST"
-                onSubmit={handleSubmit}
               >
                 {/* FormSubmit configuration */}
                 <input
